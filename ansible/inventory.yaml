@@ -1,0 +1,15 @@
+all:
+  children:
+    db_hosts:
+      hosts:
+        db:
+          ansible_host: 127.0.0.1
+          ansible_port: 2200
+          ansible_private_key_file: .vagrant/machines/db/virtualbox/private_key
+    ungrouped: {}
+    web_hosts:
+      hosts:
+        web:
+          ansible_host: 127.0.0.1
+          ansible_port: 2222
+          ansible_private_key_file: .vagrant/machines/web/virtualbox/private_key

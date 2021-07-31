@@ -29,7 +29,7 @@ services:
             - public
             - private
     mongo:
-        image: mongo:latest
+        image: mongo:4.4.7
         expose:
             - 27017
         restart: on-failure

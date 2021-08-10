@@ -1,0 +1,44 @@
+--- 
+apiVersion: apps/v1
+kind: StatefulSet
+labels: 
+  app: realworld
+  type: mongo
+metadata: ~
+name: mongo-realworld
+replicas: 1
+selector: 
+  app: realworld
+  matchLabels: ~
+  type: mongo
+serviceName: mongo
+spec: ~
+template: 
+  containers: 
+    - 
+      name: mongo-realworld
+  image: "mongo:latest"
+  imagePullPolicy: Always
+  labels: 
+    app: realworld
+    type: mongo
+  metadata: ~
+  mountPath: /data/db
+  ports: 
+    - 
+      containerPort: 27017
+  spec: ~
+  volumeMounts: 
+    - 
+      name: mongo-pvc
+volumeClaimTemplates: 
+  - 
+    metadata: 
+      accessModes: 
+        - ReadWriteOnce
+      name: mongo-pvc
+      resources: 
+        requests: ~
+        storage: 1Gi
+      spec: ~
+      storageClassName: csi-hostpath-sc
